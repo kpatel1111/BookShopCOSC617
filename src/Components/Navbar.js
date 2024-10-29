@@ -70,7 +70,7 @@ const Navbar = () => {
 
                 <input type="submit" value="sign in" className="btn" />
                 <p>forgot password? <a href="\#">click here</a></p>
-                <p>dont't have an account ? <a href="\#">create one</a></p>
+                <p>dont't have an account ? <a href="\#">create one please</a></p>
                 <p></p>
             </form>
         </div>    
