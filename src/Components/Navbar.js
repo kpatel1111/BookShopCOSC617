@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-
+import { Link, BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FaHeart } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
@@ -38,11 +38,12 @@ const Navbar = () => {
 
             <div className='header_two'>
                 <div className='navbar'>
-                    <a href="\#">Home</a>
+                    {/* <a href="\#">Home</a>
                     <a href="\#">Featured</a>
                     <a href="\#">Arrivals</a>
                     <a href="\#">Reviews</a>
-                    <a href="\#">Blogs</a>
+                    <a href="\#">Blogs</a> */}
+                    <Link to="Components/Reviews">Reviews</Link>
                 </div>
             </div>
         </header>
