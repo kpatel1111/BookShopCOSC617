@@ -1,18 +1,15 @@
 
 import './App.css';
-import Login from "./Login.js";
 import axios from "axios";
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Link, Routes, useLocation } from "react-router-dom";
 
-function App() {
+function Login() {
   return (
     <div className="App">
-    <Routes>
-        <Route exact path="/" element={<Login/>}></Route>
-        </Routes>
+    <p>Welcome</p>
     </div>
   );
 }
 
-export default App;
+export default Login;
