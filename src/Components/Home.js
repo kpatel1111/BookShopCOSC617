@@ -2,7 +2,6 @@ import React from 'react'
 import Navbar from "./Navbar";
 import user from "./Images/image.png";
 import { FaEye, FaHeadset, FaHeart,FaLock,FaPlane, FaSearch, FaStar, FaStarHalf, FaMapMarkedAlt, FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 
@@ -714,7 +713,7 @@ const Home = () => {
 
         </section>
 
-        <section className="footer">
+        <section className="footer" style={{background:"whitesmoke"}}>
         <div className="box-container">
                 <div className="box">
                     <h3>Website Links</h3>
@@ -743,7 +742,7 @@ const Home = () => {
                     <img src="image/worldmap.png" alt="" className='map' />
                 </div>
             </div>
-            <div className="credit">created by <span>CodeSlaves Design</span> | all rights reserved!</div>
+            <div className="credit">Created for COSC 617. All rights are reserved.</div>
         </section>
 
     </div>
