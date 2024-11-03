@@ -1,9 +1,12 @@
 import React from 'react';
+import "../App.css";
+import user from "./Images/image.png";
 import Navbar from "./Navbar";
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { Autoplay } from 'swiper/modules';
+import { red } from '@mui/material/colors';
 
 const Reviews = () => {
   const swiperOptions = {
@@ -31,9 +34,8 @@ const Reviews = () => {
     <div className='reviews-page'>
       <Navbar />
 
-      <section className="reviews" id='reviews'>
-        <h1 className='heading'><span>Client's Reviews</span></h1>
-
+      <h1 style={{fontSize:"25px", marginLeft:"675px", marginTop:"20px"}}>Client Reviews</h1>
+      <section className="reviews" id="reviews">
         <div className="swiper">
           <Swiper
             watchSlidesProgress={true}
@@ -43,7 +45,7 @@ const Reviews = () => {
           >
             <SwiperSlide>
               <div className="swiper-slide box">
-                <img src="image/pic-1.png" alt="" />
+                <img src={user} alt="" />
                 <h3>John Doe</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam delectus doloribus?</p>
                 <div className="stars">
@@ -57,22 +59,8 @@ const Reviews = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div className="swiper-slide box">
-                <img src="image/pic-2.png" alt="" />
+                <img src={user} alt="" />
                 <h3>Jane Smith</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam delectus doloribus?</p>
-                <div className="stars">
-                  <i><FaStar /></i>
-                  <i><FaStar /></i>
-                  <i><FaStar /></i>
-                  <i><FaStar /></i>
-                  <i><FaStarHalf /></i>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="swiper-slide box">
-                <img src="image/pic-3.png" alt="" />
-                <h3>Mike Johnson</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam delectus doloribus?</p>
                 <div className="stars">
                   <i><FaStar /></i>
@@ -89,7 +77,7 @@ const Reviews = () => {
       </section>
 
       <footer className="footer">
-        <div className="credit">Created by <span>CodeSlaves Design</span> | All rights reserved!</div>
+        <div className="credit">Created for COSC 617 | All rights are reserved</div>
       </footer>
     </div>
   );

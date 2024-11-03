@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from "./Navbar";
+import user from "./Images/image.png";
 import { FaEye, FaHeadset, FaHeart,FaLock,FaPlane, FaSearch, FaStar, FaStarHalf, FaMapMarkedAlt, FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -117,34 +118,8 @@ const Home = () => {
             </div>
         </section>
 
-        <section class="icons-container">
-          <div class="icons">
-              <i>< FaPlane /></i>
-              <div class="content">
-                  <h3>over payment</h3>
-                  <p>over payment $100</p>
-              </div>
-          </div>
-
-          <div class="icons">
-              <i>< FaLock /></i>
-              <div class="content">
-                  <h3>over payment</h3>
-                  <p>over payment $100</p>
-              </div>
-          </div>
-
-          <div class="icons">
-              <i>< FaHeadset /></i>
-              <div class="content">
-                  <h3>over payment</h3>
-                  <p>over payment $100</p>
-              </div>
-          </div>
-        </section>
-
         <section class="featured" id="featured">
-          <div class="heading"><span>featured books</span></div>
+          <div class="heading" style={{marginTop:"50px", marginBottom:"50px"}}><span>featured books</span></div>
           <div class="swiper ">
             <Swiper
                 watchSlidesProgress={true} 
@@ -356,7 +331,7 @@ const Home = () => {
         </section>
 
         <section className="arrivals" id='arrivals'>
-            <div className="heading"><span>new arrivals</span></div>
+            <div className="heading" style={{marginTop:"50px", marginBottom:"50px"}}><span>New Arrivals</span></div>
             <div className="swiper">
                 <Swiper
                     watchSlidesProgress={true} 
@@ -583,7 +558,7 @@ const Home = () => {
         </section>
 
         <section className="reviews" id='reviews'>
-            <h1 className='heading'><span>client's reviews</span></h1>
+            <h1 className='heading' style={{marginTop:"50px", marginBottom:"50px"}}><span>Client Reviews</span></h1>
 
             <div className="swiper">
             <Swiper
@@ -598,7 +573,7 @@ const Home = () => {
             >
                 <SwiperSlide>
                     <div className="swiper-slide box">
-                        <img src="image/pic-1.png" alt="" />
+                        <img src={user} alt="" />
                         <h3>john deo</h3>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam delectus doloribus?
@@ -614,7 +589,7 @@ const Home = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="swiper-slide box">
-                        <img src="image/pic-2.png" alt="" />
+                        <img src={user} alt="" />
                         <h3>john deo</h3>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam delectus doloribus?
@@ -630,7 +605,7 @@ const Home = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="swiper-slide box">
-                        <img src="image/pic-3.png" alt="" />
+                        <img src={user} alt="" />
                         <h3>john deo</h3>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam delectus doloribus?
@@ -646,39 +621,7 @@ const Home = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="swiper-slide box">
-                        <img src="image/pic-4.png" alt="" />
-                        <h3>john deo</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam delectus doloribus?
-                        </p>
-                        <div className="stars">
-                            <i><FaStar/></i>
-                            <i><FaStar/></i>
-                            <i><FaStar/></i>
-                            <i><FaStar/></i>
-                            <i><FaStarHalf/></i>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="swiper-slide box">
-                        <img src="image/pic-5.png" alt="" />
-                        <h3>john deo</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam delectus doloribus?
-                        </p>
-                        <div className="stars">
-                            <i><FaStar/></i>
-                            <i><FaStar/></i>
-                            <i><FaStar/></i>
-                            <i><FaStar/></i>
-                            <i><FaStarHalf/></i>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="swiper-slide box">
-                        <img src="image/pic-6.png" alt="" />
+                        <img src={user} alt="" />
                         <h3>john deo</h3>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam delectus doloribus?
@@ -697,7 +640,7 @@ const Home = () => {
         </section>
 
         <section className="blogs" id="blogs">
-            <h1 className='heading'><span>our blogs</span></h1>
+            <h1 className='heading' style={{marginTop:"50px", marginBottom:"50px"}}><span>Our Community Feed</span></h1>
 
             <div className="swiper">
                 <Swiper
@@ -766,65 +709,39 @@ const Home = () => {
                         </div>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide>
-                    <div className="swiper-slide box">
-                        <div className="image">
-                            <img src="image/blog-5.jpg" alt="" />
-                        </div>
-                        <div className="content">
-                            <h3>blog title goes here</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati aliquid sed officia.
-                            </p>
-                            <a href="\#" className='btn'>read more</a>
-                        </div>
-                    </div>
-                </SwiperSlide>
                 </Swiper>
             </div>
 
         </section>
 
         <section className="footer">
-            <div className="box-container">
+        <div className="box-container">
                 <div className="box">
-                    <h3>our locations</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>india</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>USA</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>russia</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>france</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>japan</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>africa</a>
+                    <h3>Website Links</h3>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Home</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Search Books</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Rent Books</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Reading Session Reservation</a>
                 </div>
                 <div className="box">
-                    <h3>quick links</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>home</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>featured</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>arrivals</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>blogs</a>
+                    <h3>User Links</h3>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>User Profile Page</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Reading List</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Books Rental History</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Table Reservation History</a>
                 </div>
                 <div className="box">
-                    <h3>extra links</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>account info</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>ordered items</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>privacy policy</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>payment method</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>our services</a>
+                    <h3>Login and Logout</h3>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Login</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Logout</a>
                 </div>
                 <div className="box">
-                    <h3>contact info</h3>
+                    <h3>Contact Information</h3>
                     <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
                     <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
-                    <a href="\#"><i><FaEnvelope /></i>john@gmail.com</a>
+                    <a href="\#"><i><FaEnvelope /></i>cosc671@yahoo.com</a>
                     <img src="image/worldmap.png" alt="" className='map' />
                 </div>
-            </div>
-            <div className="share">
-                <a href="\#"><i><FaFacebookF /></i></a>
-                <a href="\#"><i><FaTwitter  /></i></a>
-                <a href="\#"><i><FaInstagram  /></i></a>
-                <a href="\#"><i><FaLinkedinIn  /></i></a>
-                <a href="\#"><i><FaPinterestP  /></i></a>
             </div>
             <div className="credit">created by <span>CodeSlaves Design</span> | all rights reserved!</div>
         </section>
