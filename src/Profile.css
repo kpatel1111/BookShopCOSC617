@@ -1,0 +1,58 @@
+
+.form_Box {
+    width: 600px;
+    position: relative;
+    margin: 2% auto;
+    height: fit-content;
+    margin-left: 470px;
+    display: inline-block;
+    background-color: whitesmoke;
+    padding: 5px 20px 15px 20px;
+}
+.email,
+.password,
+.phoneNumber,
+.name {
+    display: inline-block;
+    align-items: flex-start;
+    width: 50%;
+}
+#input1 {
+    color: black;
+    font-size: 14px;
+    width: 90%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    background: transparent;
+    outline: none;
+}
+#btn {
+    background-color: #4a4e69;
+    color: white;
+    margin-top: -15px;
+}
+#input1 ::placeholder {
+    text-align: center;
+    font-size:smaller;
+}
+#button {
+    width: 40%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    background: green;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    margin-top: 25px;
+    margin-left: 160px;
+
+}
+img{
+    width:100px;
+    height: 100px;
+    margin-left: 720px;
+    margin-top: 20px;
+}

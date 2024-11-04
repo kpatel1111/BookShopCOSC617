@@ -1,0 +1,71 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.full-page {
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    /* This block of code is for the setting the background image and position of the image*/
+}
+
+.form-box {
+    width: 400px;
+    position: relative;
+    margin: 2% auto;
+    height: fit-content;
+    margin-top: 150px;
+    background-color: white;
+    padding: 5px 20px 15px 20px;
+}
+
+h3 {
+    color: blue;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: blue;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+
+}
+
+#input1 {
+    color: black;
+    font-size: 14px;
+    width: 90%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 2px solid blue;
+    background: transparent;
+    outline: none;
+}
+
+button {
+    width: 40%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    background: green;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    margin-top: 25px;
+    margin-left: 105px;
+
+}

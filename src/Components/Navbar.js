@@ -30,17 +30,17 @@ const Navbar = () => {
                 </form>
                 <div className="icons">
                     <div id="search-btn"><FaSearch/></div>
-                    <a href="#"><FaHeart/></a>
-                    <a href="#"><FaUser/></a>
+                    <Link to="Components/ReadingList"><FaHeart/></Link>
+                    <Link to="Components/Profile"><FaUser/></Link>
                 </div>
             </div>
 
             <div className='header_two'>
                 <div className='navbar'>
                     <Link to="/">Home</Link>
-                    <Link to="#">Books</Link>
-                    <Link to="#">Books Rental</Link>
-                    <Link to="#">Reading Session Reservation</Link>
+                    <Link to="Components/Book">Books</Link>
+                    <Link to="Components/BooksRental">Books Rental</Link>
+                    <Link to="Components/TableReservation">Reading Session Reservation</Link>
                     <Link to="Components/Reviews">Reviews</Link>
                 </div>
             </div>
