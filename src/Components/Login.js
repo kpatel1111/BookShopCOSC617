@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import "../LoginSignup.css";
+import image from "./Images/book.jpg";
 import { BrowserRouter, Route, Routes, Router, Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { set } from "mongoose";
@@ -33,23 +34,24 @@ function Login() {
     };
 
     return (
-         <div class="full-page">
-            <div class="form-box">
+         <div class="full-page" id="loginsignupfullpage">
+            <div class="form-box" id="loginsignupformbox">
                 <center>
-                    <h1>Account Login Form</h1>
-                    <form onSubmit={handleSubmit}>
+                    <h1 id="loginsignuph1">Account Login Form</h1>
+                    <img id="loginsignupimage" src={image} alt="" />
+                    <form id="loginsignupform" onSubmit={handleSubmit}>
 
-                        <p><input
-                            id="input1"
+                        <p id="loginsignupparagraph"><input
+                            id="loginsignupinput"
                             type="email"
                             placeholder="Enter Email Address"
                             value={email}
                             required="required"
                             onChange={(e) => setEmail(e.target.value)}
                         /></p>
-                        <p>
+                        <p id="loginsignupparagraph">
                             <input
-                                id="input1"
+                                id="loginsignupinput"
                                 type="password"
                                 placeholder="Enter Account Password"
                                 value={password}
@@ -59,7 +61,7 @@ function Login() {
                         </p>
                         <br></br>
                         <Link to="/signup" style={{fontSize:"12px"}}>Do not have an account, SignUp</Link>
-                        <p><button type="submit" style={{ color: 'white', backgroundColor: "green"}}>Login In</button></p>
+                        <p><button type="submit" id="loginsignupbutton" style={{ color: 'white', backgroundColor: "green"}}>Login In</button></p>
                     </form>
                 </center>
             </div>

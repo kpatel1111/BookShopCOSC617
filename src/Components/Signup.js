@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import "../LoginSignup.css";
+import image from "./Images/book.jpg";
 import { BrowserRouter, Route, Routes, Router, Link } from 'react-router-dom';
 import axios from 'axios';
 import login from "./Login.js";
@@ -25,21 +26,22 @@ function Signup() {
 
   };
   return (
-    <div className="full-page">
-      <div className="form-box">
+    <div className="full-page" id="loginsignupfullpage">
+      <div className="form-box" id="loginsignupformbox">
         <center>
-          <h1>Account SignUp Form</h1>
-          <form onSubmit={handleSubmit}>
-            <p><input
-              id="input1"
+          <h1 id="loginsignuph1">Account SignUp Form</h1>
+          <img id="loginsignupimage" src={image} alt="" />
+          <form id="loginsignupform" onSubmit={handleSubmit}>
+            <p id="loginsignupparagraph"><input
+              id="loginsignupinput"
               type="text"
               placeholder="Enter Name"
               value={name}
               required="required"
               onChange={(e) => setName(e.target.value)}
             /></p>
-            <p><input
-              id="input1"
+            <p id="loginsignupparagraph"><input
+              id="loginsignupinput"
               type="tel"
               placeholder="Enter Phone Number"
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
@@ -47,17 +49,17 @@ function Signup() {
               required="required"
               onChange={(e) => setPhoneNumber(e.target.value)}
             /></p>
-            <p><input
-              id="input1"
+            <p id="loginsignupparagraph"><input
+              id="loginsignupinput"
               type="email"
               placeholder="Enter Email Address"
               value={email}
               required="required"
               onChange={(e) => setEmail(e.target.value)}
             /></p>
-            <p>
+            <p id="loginsignupparagraph">
               <input
-                id="input1"
+                id="loginsignupinput"
                 type="password"
                 placeholder="Enter Account Password"
                 value={password}
@@ -67,7 +69,7 @@ function Signup() {
             </p>
             <br></br>
             <Link to="/" style={{marginTop:"50px", fontSize:"12px"}}>Already have an account, SignIn</Link>
-            <p><button type="submit" style={{ color: "white", backgroundColor: "green" }}>Register</button></p>
+            <p><button type="submit" id="loginsignupbutton" style={{ color: "white", backgroundColor: "green" }}>Register</button></p>
           </form>
         </center>
       </div>

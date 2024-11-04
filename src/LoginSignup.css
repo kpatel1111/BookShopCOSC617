@@ -1,11 +1,5 @@
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.full-page {
+#loginsignupfullpage {
     height: 100%;
     width: 100%;
     background-color: whitesmoke;
@@ -14,35 +8,30 @@
     position: absolute;
     /* This block of code is for the setting the background image and position of the image*/
 }
-
-.form-box {
+#loginsignupformbox {
     width: 400px;
     position: relative;
     margin: 2% auto;
     height: fit-content;
-    margin-top: 150px;
+    margin-top: 120px;
     background-color: white;
     padding: 5px 20px 15px 20px;
 }
-
-h3 {
+#loginsignuph3 {
     color: blue;
 }
-
-h1 {
+#loginsignuph1 {
     margin-top: 20px;
     margin-bottom: 20px;
     color: blue;
 }
-
-p {
+#lognsignupparagraph {
     margin-top: 5px;
     margin-bottom: 5px;
     text-align: center;
 
 }
-
-#input1 {
+#loginsignupinput {
     color: black;
     font-size: 14px;
     width: 90%;
@@ -55,8 +44,7 @@ p {
     background: transparent;
     outline: none;
 }
-
-button {
+#loginsignupbutton {
     width: 40%;
     padding: 10px 30px;
     cursor: pointer;
@@ -66,6 +54,8 @@ button {
     outline: none;
     border-radius: 30px;
     margin-top: 25px;
-    margin-left: 105px;
-
+}
+#loginsignupimage{
+    width: 100px;
+    height: 100px;
 }

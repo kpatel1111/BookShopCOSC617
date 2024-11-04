@@ -23,17 +23,17 @@ function Profile() {
     var k = "";
 
     return (
-        <div className="Full_Page">
+        <div className="Full_Page" id="userfullpage">
             <Navbar />
-            <img src={image} alt="user image"/>
-            <div class="form_Box">
+            <img id="userimage" src={image} alt="user image"/>
+            <div class="form_Box" id="userformbox">
                 <center>
-                    <h1 style={{ color: "black" }}>Profile Card</h1>
-                    <form>
-                        <div className="name">
-                            <label for="name" style={{fontSize:"12px"}}>Name</label>
+                    <h1 id="userh1" style={{color:"blue"}}>Profile Card</h1>
+                    <form id="userform">
+                        <div className="name" id="username">
+                            <label id="username" for="name" style={{fontSize:"12px"}}>Name</label>
                             <input
-                                id="input1"
+                                id="usernameinput"
                                 type="name"
                                 name="name"
                                 placeholder="Display name from database"
@@ -43,10 +43,10 @@ function Profile() {
                             />
                         </div>
 
-                        <div className="phoneNumber">
-                            <label for="phone" style={{fontSize:"12px"}}>Phone Number</label>
+                        <div className="phoneNumber" id="userphonenumber">
+                            <label for="phone" id="userphone" style={{fontSize:"12px"}}>Phone Number</label>
                             <input
-                                id="input1"
+                                id="userphoneinput"
                                 type="tel"
                                 placeholder="Display phone from database"
                                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
@@ -56,10 +56,10 @@ function Profile() {
                             />
                         </div>
 
-                        <div className="email">
-                            <label for="email" style={{fontSize:"12px"}}>Email Address</label>
+                        <div className="email" id="useremail">
+                            <label for="email" id="useremail" style={{fontSize:"12px"}}>Email Address</label>
                             <input
-                                id="input1"
+                                id="useremailinput"
                                 type="email"
                                 name="email"
                                 placeholder="Display email from database"
@@ -69,18 +69,18 @@ function Profile() {
                             />
                         </div>
 
-                        <div className="password">
-                            <label for="password" style={{fontSize:"12px"}}>Update Password</label>
+                        <div className="password" id="userpassword">
+                            <label for="password" id="userpassword" style={{fontSize:"12px"}}>Password</label>
                             <input
-                                id="input1"
+                                id="userpasswordinput"
                                 type="password"
                                 name="password"
-                                placeholder="Enter New Password"
+                                placeholder="Display password from database"
                                 /*value={}
                                 onChange={}*/
                             />
                         </div>
-                        <p><button type="submit" id="button" onClick={""} style={{color:"white"}}>Update</button></p>
+                        <p><button type="submit" id="userbutton" onClick={""} style={{color:"white"}}>Update</button></p>
                     </form>
                 </center>
             </div>

@@ -1,23 +1,29 @@
 
-.form_Box {
+#userformbox {
     width: 600px;
+    height: 330px;
     position: relative;
     margin: 2% auto;
-    height: fit-content;
+    /*height: fit-content;*/
     margin-left: 470px;
     display: inline-block;
     background-color: whitesmoke;
     padding: 5px 20px 15px 20px;
 }
-.email,
-.password,
-.phoneNumber,
-.name {
+#useremail,
+#userpassword,
+#userphonenumber,
+#username {
     display: inline-block;
     align-items: flex-start;
     width: 50%;
+    margin-top: 10px;
 }
-#input1 {
+#usernameinput,
+#userphoneinput,
+#useremailinput,
+#userpasswordinput
+ {
     color: black;
     font-size: 14px;
     width: 90%;
@@ -25,19 +31,19 @@
     margin: 5px 0;
     border-left: 0;
     border-top: 0;
-    background: transparent;
+    border-right: 0;
+    border-color: blue;
+    background-color: transparent;
     outline: none;
 }
-#btn {
-    background-color: #4a4e69;
-    color: white;
-    margin-top: -15px;
-}
-#input1 ::placeholder {
+#usernameinput ::placeholder,
+#userphoneinput ::placeholder,
+#useremailinput ::placeholder,
+#userpasswordinput ::placeholder {
     text-align: center;
     font-size:smaller;
 }
-#button {
+#userbutton {
     width: 40%;
     padding: 10px 30px;
     cursor: pointer;
@@ -47,12 +53,13 @@
     outline: none;
     border-radius: 30px;
     margin-top: 25px;
-    margin-left: 160px;
-
 }
-img{
+#userimage{
     width:100px;
     height: 100px;
     margin-left: 720px;
+    margin-top: 20px;
+}
+#userh1{
     margin-top: 20px;
 }
