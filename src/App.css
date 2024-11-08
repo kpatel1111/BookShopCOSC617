@@ -66,6 +66,7 @@ html::-webkit-scrollbar-thumb{
   display: flex;
   align-items: center;
   border-radius: 0.5rem;
+  position: relative;
 }
 
 .header .header_one .search-form input{
@@ -158,7 +159,7 @@ html::-webkit-scrollbar-thumb{
       font-size: 55%;
   }
 
-  .header .header_one{   
+  .header .header_one{
       padding: 2rem;
   }
 }
@@ -313,7 +314,7 @@ section{
   }
 }
 .home{
- background: url(../public/image/banner-bg.jpg);
+  background: url('../public/image/banner-bg.jpg');
   background-position: center;
   background-size: cover;
 }
@@ -716,16 +717,65 @@ section{
   padding: 1.2rem 1.5rem;
 }
 
-.footer .credit{
-  border-top: var(border);
-  margin-top: 2rem;
-  padding: 0.1rem;
-  padding-top: 2.5rem;
-  font-size: 2rem;
-  color: var(--light-color);
-  text-align: center;
+
+
+.search-form .suggestion-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
-.footer .credit span{
-  color: var(--green);
+.search-form .suggestion-item:hover {
+    background: var(--light-bg);
+}
+
+.search-form .suggestion-image {
+    width: 40px;
+    height: 56px;
+    object-fit: cover;
+    margin-right: 1rem;
+    border-radius: 0.3rem;
+}
+
+.search-form .suggestion-info h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--black);
+}
+
+.search-form .suggestion-info p {
+    margin: 0.3rem 0 0;
+    font-size: 1rem;
+    color: var(--light-color);
+}
+
+.categories-container {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.category-button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-button.active {
+    background: #4a90e2;
+    color: white;
+    border-color: #4a90e2;
+}
+
+.category-button:hover {
+    background: #4a90e2;
+    color: white;
+    border-color: #4a90e2;
 }

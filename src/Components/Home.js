@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from "./Navbar";
 import user from "./Images/image.png";
-import { FaEye, FaHeadset, FaHeart,FaLock,FaPlane, FaSearch, FaStar, FaStarHalf, FaMapMarkedAlt, FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
+import { FaEye, FaHeadset, FaHeart, FaLock, FaPlane, FaSearch, FaStar, FaStarHalf, FaMapMarkedAlt, FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
-
-import { Autoplay} from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
+import axios from 'axios';
+import SearchSuggestions from './SearchSuggestions';
+import { googleBooksApi } from '../utils/api';
 
 const Home = () => {
   const swiperOptionsOne = {
@@ -21,7 +24,7 @@ const Home = () => {
         }
     },
     loop:true,
-  }; 
+  };
 
   const swiperOptionsTwo = {
     breakpoints: {
@@ -44,7 +47,7 @@ const Home = () => {
     loop:true,
     centeredSlides:true,
     spaceBetween:10,
-  }; 
+  };
 
   const swiperOptionsThree = {
     breakpoints: {
@@ -67,7 +70,23 @@ const Home = () => {
     loop:true,
     centeredSlides:true,
     spaceBetween:10,
-  }; 
+  };
+
+  const [featuredBooks, setFeaturedBooks] = useState([]);
+
+  useEffect(() => {
+    const fetchFeaturedBooks = async () => {
+        try {
+            const response = await googleBooksApi.getFeaturedBooks();
+            setFeaturedBooks(response.data.items || []);
+        } catch (error) {
+            console.error('Error fetching featured books:', error);
+            setFeaturedBooks([]);
+        }
+    };
+
+    fetchFeaturedBooks();
+  }, []);
 
   return (
     <div className='home-containber'>
@@ -79,11 +98,11 @@ const Home = () => {
                     <h3>upto 55% offers</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti sapiente eos quisquam voluptatibus, cum quod.</p>
                     <a href="\#" className="btn">shop now</a>
-                </div>    
+                </div>
                 <div className='swiper'>
                     <Swiper
-                        watchSlidesProgress={true} 
-                        slidesPerView={3}        
+                        watchSlidesProgress={true}
+                        slidesPerView={3}
                         autoplay={{
                             delay: 9500,
                             disableOnInteraction: false,
@@ -92,233 +111,75 @@ const Home = () => {
                         className="book-list"
                         {...swiperOptionsOne}
                     >
-                    
-                        <a href="\#" class="swiper-slide">
-                            <SwiperSlide><img src="image/book-1.png" alt=""  /></SwiperSlide>
-                        </a>
-                        <a href="\#" class="swiper-slide">
-                            <SwiperSlide><img src="image/book-2.png" alt=""  /></SwiperSlide>
-                        </a>
-                        <a href="\#" class="swiper-slide">
-                            <SwiperSlide><img src="image/book-3.png" alt=""  /></SwiperSlide>
-                        </a>
-                        <a href="\#" class="swiper-slide">
-                            <SwiperSlide><img src="image/book-4.png" alt=""  /></SwiperSlide>
-                        </a>
-                        <a href="\#" class="swiper-slide">
-                            <SwiperSlide><img src="image/book-5.png" alt=""  /></SwiperSlide>
-                        </a>
-                        <a href="\#" class="swiper-slide">
-                            <SwiperSlide><img src="image/book-6.png" alt=""  /></SwiperSlide>
-                        </a>
+
+                        <Link to="/book" className="swiper-slide">
+                            <SwiperSlide><img src="/image/book-1.png" alt=""  /></SwiperSlide>
+                        </Link>
+                        <Link to="/book" className="swiper-slide">
+                            <SwiperSlide><img src="/image/book-2.png" alt=""  /></SwiperSlide>
+                        </Link>
+                        <Link to="/book" className="swiper-slide">
+                            <SwiperSlide><img src="/image/book-3.png" alt=""  /></SwiperSlide>
+                        </Link>
+                        <Link to="/book" className="swiper-slide">
+                            <SwiperSlide><img src="/image/book-4.png" alt=""  /></SwiperSlide>
+                        </Link>
+                        <Link to="/book" className="swiper-slide">
+                            <SwiperSlide><img src="/image/book-5.png" alt=""  /></SwiperSlide>
+                        </Link>
+                        <Link to="/book" className="swiper-slide">
+                            <SwiperSlide><img src="/image/book-6.png" alt=""  /></SwiperSlide>
+                        </Link>
                     </Swiper>
-                    <img class="stand" src="images/stand.png" alt="" />
+                    <img className="stand" src="/images/stand.png" alt="" />
                 </div>
             </div>
         </section>
 
-        <section class="featured" id="featured">
-          <div class="heading" style={{marginTop:"50px", marginBottom:"50px"}}><span>featured books</span></div>
-          <div class="swiper ">
-            <Swiper
-                watchSlidesProgress={true} 
-                autoplay={{
-                    delay: 3500,
-                    disableOnInteraction: false,
-                }}
-                modules={[Autoplay]}
-                className="featured-slider"
-                {...swiperOptionsTwo}
-            >
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-1.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
+        <section className="featured" id="featured">
+            <div className="heading" style={{marginTop:"50px", marginBottom:"50px"}}>
+                <span>featured books</span>
             </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-2.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
+            <div className="swiper">
+                <Swiper
+                    watchSlidesProgress={true}
+                    autoplay={{
+                        delay: 3500,
+                        disableOnInteraction: false,
+                    }}
+                    modules={[Autoplay]}
+                    className="featured-slider"
+                    {...swiperOptionsTwo}
+                >
+                    {featuredBooks?.map((book) => (
+                        <SwiperSlide key={book.id}>
+                            <div className="box">
+                                <div className="icons">
+                                    <Link to={`/book/${book.id}`}><FaSearch /></Link>
+                                    <Link to="/Components/ReadingList"><FaHeart /></Link>
+                                    <Link to={`/book/${book.id}`}><FaEye /></Link>
+                                </div>
+                                <div className="image">
+                                    <img
+                                        src={book.volumeInfo?.imageLinks?.thumbnail || '/image/book-1.png'}
+                                        alt={book.volumeInfo?.title}
+                                        onError={(e) => {
+                                            e.target.src = '/image/book-1.png';
+                                        }}
+                                    />
+                                </div>
+                                <div className="content">
+                                    <h3>{book.volumeInfo?.title}</h3>
+                                    <div className="price">$15.99 <span>$20.99</span></div>
+                                    <Link to={`/booksrental/${book.id}`} className="btn">
+                                        Rent Now
+                                    </Link>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-3.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-4.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-5.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-6.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-7.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-8.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-9.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-10.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-5.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            </Swiper >
-          </div>
         </section>
 
         <section className="newsletter">
@@ -333,7 +194,7 @@ const Home = () => {
             <div className="heading" style={{marginTop:"50px", marginBottom:"50px"}}><span>New Arrivals</span></div>
             <div className="swiper">
                 <Swiper
-                    watchSlidesProgress={true} 
+                    watchSlidesProgress={true}
                     autoplay={{
                         delay: 3500,
                         disableOnInteraction: false,
@@ -346,7 +207,7 @@ const Home = () => {
                 <SwiperSlide>
                     <a href="\#" className='box'>
                         <div className="image">
-                            <img src="image/book-1.png" alt="" />
+                            <img src="/image/book-1.png" alt="" />
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
@@ -364,7 +225,7 @@ const Home = () => {
                 <SwiperSlide>
                     <a href="\#" className='box'>
                         <div className="image">
-                            <img src="image/book-2.png" alt="" />
+                            <img src="/image/book-2.png" alt="" />
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
@@ -382,7 +243,7 @@ const Home = () => {
                 <SwiperSlide>
                     <a href="\#" className='box'>
                         <div className="image">
-                            <img src="image/book-3.png" alt="" />
+                            <img src="/image/book-3.png" alt="" />
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
@@ -400,7 +261,7 @@ const Home = () => {
                 <SwiperSlide>
                     <a href="\#" className='box'>
                         <div className="image">
-                            <img src="image/book-4.png" alt="" />
+                            <img src="/image/book-4.png" alt="" />
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
@@ -418,7 +279,7 @@ const Home = () => {
                 <SwiperSlide>
                     <a href="\#" className='box'>
                         <div className="image">
-                            <img src="image/book-5.png" alt="" />
+                            <img src="/image/book-5.png" alt="" />
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
@@ -438,7 +299,7 @@ const Home = () => {
 
             <div className="swiper">
                 <Swiper
-                    watchSlidesProgress={true} 
+                    watchSlidesProgress={true}
                     autoplay={{
                         delay: 3500,
                         disableOnInteraction: false,
@@ -451,7 +312,7 @@ const Home = () => {
                 <SwiperSlide>
                     <a href="\#" className='box'>
                         <div className="image">
-                            <img src="image/book-1.png" alt="" />
+                            <img src="/image/book-1.png" alt="" />
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
@@ -469,7 +330,7 @@ const Home = () => {
                 <SwiperSlide>
                     <a href="\#" className='box'>
                         <div className="image">
-                            <img src="image/book-2.png" alt="" />
+                            <img src="/image/book-2.png" alt="" />
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
@@ -487,7 +348,7 @@ const Home = () => {
                 <SwiperSlide>
                     <a href="\#" className='box'>
                         <div className="image">
-                            <img src="image/book-3.png" alt="" />
+                            <img src="/image/book-3.png" alt="" />
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
@@ -505,7 +366,7 @@ const Home = () => {
                 <SwiperSlide>
                     <a href="\#" className='box'>
                         <div className="image">
-                            <img src="image/book-4.png" alt="" />
+                            <img src="/image/book-4.png" alt="" />
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
@@ -523,7 +384,7 @@ const Home = () => {
                 <SwiperSlide>
                     <a href="\#" className='box'>
                         <div className="image">
-                            <img src="image/book-5.png" alt="" />
+                            <img src="/image/book-5.png" alt="" />
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
@@ -552,7 +413,7 @@ const Home = () => {
                 <a href="\#" className='btn'>shop now</a>
             </div>
             <div className="image">
-                <img src="image/deal-img.jpg" alt="" />
+                <img src="/image/deal-img.jpg" alt="" />
             </div>
         </section>
 
@@ -561,7 +422,7 @@ const Home = () => {
 
             <div className="swiper">
             <Swiper
-                watchSlidesProgress={true} 
+                watchSlidesProgress={true}
                 autoplay={{
                     delay: 3500,
                     disableOnInteraction: false,
@@ -643,7 +504,7 @@ const Home = () => {
 
             <div className="swiper">
                 <Swiper
-                    watchSlidesProgress={true} 
+                    watchSlidesProgress={true}
                     autoplay={{
                         delay: 3500,
                         disableOnInteraction: false,
@@ -655,7 +516,7 @@ const Home = () => {
                 <SwiperSlide>
                     <div className="swiper-slide box">
                         <div className="image">
-                            <img src="image/blog-1.jpg" alt="" />
+                            <img src="/image/blog-1.jpg" alt="" />
                         </div>
                         <div className="content">
                             <h3>blog title goes here</h3>
@@ -669,7 +530,7 @@ const Home = () => {
                 <SwiperSlide>
                     <div className="swiper-slide box">
                         <div className="image">
-                            <img src="image/blog-2.jpg" alt="" />
+                            <img src="/image/blog-2.jpg" alt="" />
                         </div>
                         <div className="content">
                             <h3>blog title goes here</h3>
@@ -683,7 +544,7 @@ const Home = () => {
                 <SwiperSlide>
                     <div className="swiper-slide box">
                         <div className="image">
-                            <img src="image/blog-3.jpg" alt="" />
+                            <img src="/image/blog-3.jpg" alt="" />
                         </div>
                         <div className="content">
                             <h3>blog title goes here</h3>
@@ -697,7 +558,7 @@ const Home = () => {
                 <SwiperSlide>
                     <div className="swiper-slide box">
                         <div className="image">
-                            <img src="image/blog-4.jpg" alt="" />
+                            <img src="/image/blog-4.jpg" alt="" />
                         </div>
                         <div className="content">
                             <h3>blog title goes here</h3>
@@ -714,32 +575,32 @@ const Home = () => {
         </section>
 
         <section className="footer" style={{background:"whitesmoke"}}>
-        <div className="box-container">
+            <div className="box-container">
                 <div className="box">
                     <h3>Website Links</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Home</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Search Books</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Rent Books</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Reading Session Reservation</a>
+                    <Link to="/Components/Home"><i><FaMapMarkedAlt /></i>Home</Link>
+                    <Link to="/book"><i><FaMapMarkedAlt /></i>Search Books</Link>
+                    <Link to="/booksrental/:key"><i><FaMapMarkedAlt /></i>Rent Books</Link>
+                    <Link to="/tablereservation/:key"><i><FaMapMarkedAlt /></i>Reading Session Reservation</Link>
                 </div>
                 <div className="box">
                     <h3>User Links</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>User Profile Page</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Reading List</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Books Rental History</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Table Reservation History</a>
+                    <Link to="/Components/Profile"><i><FaMapMarkedAlt /></i>User Profile Page</Link>
+                    <Link to="/Components/ReadingList"><i><FaMapMarkedAlt /></i>Reading List</Link>
+                    <Link to="/Components/Profile"><i><FaMapMarkedAlt /></i>Books Rental History</Link>
+                    <Link to="/Components/Profile"><i><FaMapMarkedAlt /></i>Table Reservation History</Link>
                 </div>
                 <div className="box">
                     <h3>Login and Logout</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Login</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Logout</a>
+                    <Link to="/"><i><FaMapMarkedAlt /></i>Login</Link>
+                    <Link to="/Components/Logout"><i><FaMapMarkedAlt /></i>Logout</Link>
                 </div>
                 <div className="box">
                     <h3>Contact Information</h3>
-                    <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
-                    <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
-                    <a href="\#"><i><FaEnvelope /></i>cosc671@yahoo.com</a>
-                    <img src="image/worldmap.png" alt="" className='map' />
+                    <a href="#"><i><FaPhoneAlt /></i>+123-356-546</a>
+                    <a href="#"><i><FaPhoneAlt /></i>+123-356-546</a>
+                    <a href="#"><i><FaEnvelope /></i>cosc671@yahoo.com</a>
+                    <img src="/image/worldmap.png" alt="" className='map' />
                 </div>
             </div>
             <div className="credit">Created for COSC 617. All rights are reserved.</div>

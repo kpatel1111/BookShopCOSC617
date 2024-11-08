@@ -3,10 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { googleBooksApi } from '../utils/api';
 
-const TableReservation = () => {
+const BookRental = () => {
     const [book, setBook] = useState(null);
-    const [reservationDate, setReservationDate] = useState('');
-    const [reservationTime, setReservationTime] = useState('');
+    const [rentalDuration, setRentalDuration] = useState(7);
     const [loading, setLoading] = useState(true);
     const { key } = useParams();
     const navigate = useNavigate();
@@ -25,14 +24,13 @@ const TableReservation = () => {
         fetchBook();
     }, [key]);
 
-    const handleReservation = async (e) => {
+    const handleRental = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3001/reservations', {
+            await axios.post('http://localhost:3001/rentals', {
                 bookKey: key,
                 userId: 'current-user-id',
-                reservationDate,
-                reservationTime,
+                duration: rentalDuration,
                 bookDetails: {
                     title: book.volumeInfo.title,
                     authors: book.volumeInfo.authors,
@@ -41,11 +39,11 @@ const TableReservation = () => {
                     imageLinks: book.volumeInfo.imageLinks
                 }
             });
-            alert('Reading table reserved successfully!');
+            alert('Book rented successfully!');
             navigate('/profile');
         } catch (error) {
-            console.error('Error reserving table:', error);
-            alert('Failed to reserve table. Please try again.');
+            console.error('Error renting book:', error);
+            alert('Failed to rent book. Please try again.');
         }
     };
 
@@ -53,7 +51,7 @@ const TableReservation = () => {
     if (!book) return <div>Book not found</div>;
 
     return (
-        <div className="reservation-container">
+        <div className="rental-container">
             <div className="book-details">
                 <img
                     src={book.volumeInfo.imageLinks?.thumbnail || '/image/book-1.png'}
@@ -68,29 +66,25 @@ const TableReservation = () => {
                 </div>
             </div>
 
-            <form onSubmit={handleReservation} className="reservation-form">
-                <h3>Reserve Reading Table</h3>
+            <form onSubmit={handleRental} className="rental-form">
+                <h3>Rent this Book</h3>
                 <div className="form-group">
-                    <label>Date:</label>
-                    <input
-                        type="date"
-                        value={reservationDate}
-                        onChange={(e) => setReservationDate(e.target.value)}
-                        min={new Date().toISOString().split('T')[0]}
-                    />
+                    <label>Rental Duration (days):</label>
+                    <select
+                        value={rentalDuration}
+                        onChange={(e) => setRentalDuration(Number(e.target.value))}
+                    >
+                        <option value={7}>7 days</option>
+                        <option value={14}>14 days</option>
+                        <option value={30}>30 days</option>
+                    </select>
                 </div>
-                <div className="form-group">
-                    <label>Time:</label>
-                    <input
-                        type="time"
-                        value={reservationTime}
-                        onChange={(e) => setReservationTime(e.target.value)}
-                    />
-                </div>
-                <button type="submit">Reserve Table</button>
+                <button type="submit" className="rent-button">
+                    Confirm Rental
+                </button>
             </form>
         </div>
     );
 };
 
-export default TableReservation;
+export default BookRental;
