@@ -60,7 +60,7 @@ function Login() {
                             />
                         </p>
                         <br></br>
-                        <Link to="/signup" style={{fontSize:"12px"}}>Do not have an account, SignUp</Link>
+                        <Link to="Components/Signup" style={{fontSize:"12px"}}>Do not have an account, SignUp</Link>
                         <p><button type="submit" id="loginsignupbutton" style={{ color: 'white', backgroundColor: "green"}}>Login In</button></p>
                     </form>
                 </center>
