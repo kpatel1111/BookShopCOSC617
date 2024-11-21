@@ -76,9 +76,9 @@ const Home = () => {
         <section className="home" id="home">
             <div className="row">
                 <div className="content">
-                    <h3>upto 55% offers</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti sapiente eos quisquam voluptatibus, cum quod.</p>
-                    <a href="\#" className="btn">shop now</a>
+                    <h3>Welcome to BookShop</h3>
+                    <p>Explore all range of unique book collection.</p>
+                    <a href="\#" className="btn">Explore Now</a>
                 </div>    
                 <div className='swiper'>
                     <Swiper
@@ -142,8 +142,6 @@ const Home = () => {
                 </div>
                 <div class="content">
                     <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
                 </div>
             </div>
             </SwiperSlide>
@@ -159,8 +157,6 @@ const Home = () => {
                 </div>
                 <div class="content">
                     <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
                 </div>
             </div>
             </SwiperSlide>
@@ -176,8 +172,6 @@ const Home = () => {
                 </div>
                 <div class="content">
                     <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
                 </div>
             </div>
             </SwiperSlide>
@@ -193,8 +187,6 @@ const Home = () => {
                 </div>
                 <div class="content">
                     <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
                 </div>
             </div>
             </SwiperSlide>
@@ -210,8 +202,6 @@ const Home = () => {
                 </div>
                 <div class="content">
                     <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
                 </div>
             </div>
             </SwiperSlide>
@@ -227,8 +217,6 @@ const Home = () => {
                 </div>
                 <div class="content">
                     <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
                 </div>
             </div>
             </SwiperSlide>
@@ -244,8 +232,6 @@ const Home = () => {
                 </div>
                 <div class="content">
                     <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
                 </div>
             </div>
             </SwiperSlide>
@@ -261,8 +247,6 @@ const Home = () => {
                 </div>
                 <div class="content">
                     <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
                 </div>
             </div>
             </SwiperSlide>
@@ -278,8 +262,6 @@ const Home = () => {
                 </div>
                 <div class="content">
                     <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
                 </div>
             </div>
             </SwiperSlide>
@@ -295,8 +277,6 @@ const Home = () => {
                 </div>
                 <div class="content">
                     <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
                 </div>
             </div>
             </SwiperSlide>
@@ -312,8 +292,6 @@ const Home = () => {
                 </div>
                 <div class="content">
                     <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
                 </div>
             </div>
             </SwiperSlide>
@@ -324,7 +302,7 @@ const Home = () => {
         <section className="newsletter">
             <form action="">
                 <h3>subscribe for latest update</h3>
-                <input type="email" placeholder='enter your email' className='box' />
+                <input type="email" placeholder='Please enter your email address.' className='box' />
                 <input type="submit" value="subscribe" className='btn' />
             </form>
         </section>
@@ -350,7 +328,6 @@ const Home = () => {
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
-                            <div className="price">$15.99 <span>$20.99</span></div>
                             <div className="stars">
                                 <i><FaStar /></i>
                                 <i><FaStar /></i>
@@ -368,7 +345,6 @@ const Home = () => {
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
-                            <div className="price">$15.99 <span>$20.99</span></div>
                             <div className="stars">
                                 <i><FaStar /></i>
                                 <i><FaStar /></i>
@@ -386,7 +362,6 @@ const Home = () => {
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
-                            <div className="price">$15.99 <span>$20.99</span></div>
                             <div className="stars">
                                 <i><FaStar /></i>
                                 <i><FaStar /></i>
@@ -404,7 +379,6 @@ const Home = () => {
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
-                            <div className="price">$15.99 <span>$20.99</span></div>
                             <div className="stars">
                                 <i><FaStar /></i>
                                 <i><FaStar /></i>
@@ -422,7 +396,6 @@ const Home = () => {
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
-                            <div className="price">$15.99 <span>$20.99</span></div>
                             <div className="stars">
                                 <i><FaStar /></i>
                                 <i><FaStar /></i>
@@ -455,7 +428,6 @@ const Home = () => {
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
-                            <div className="price">$15.99 <span>$20.99</span></div>
                             <div className="stars">
                                 <i><FaStar /></i>
                                 <i><FaStar /></i>
@@ -473,7 +445,6 @@ const Home = () => {
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
-                            <div className="price">$15.99 <span>$20.99</span></div>
                             <div className="stars">
                                 <i><FaStar /></i>
                                 <i><FaStar /></i>
@@ -491,7 +462,6 @@ const Home = () => {
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
-                            <div className="price">$15.99 <span>$20.99</span></div>
                             <div className="stars">
                                 <i><FaStar /></i>
                                 <i><FaStar /></i>
@@ -509,7 +479,6 @@ const Home = () => {
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
-                            <div className="price">$15.99 <span>$20.99</span></div>
                             <div className="stars">
                                 <i><FaStar /></i>
                                 <i><FaStar /></i>
@@ -527,7 +496,6 @@ const Home = () => {
                         </div>
                         <div className="content">
                             <h3>new arrivals</h3>
-                            <div className="price">$15.99 <span>$20.99</span></div>
                             <div className="stars">
                                 <i><FaStar /></i>
                                 <i><FaStar /></i>
@@ -544,12 +512,11 @@ const Home = () => {
 
         <section className='deal'>
             <div className="content">
-                <h3>deal of the day</h3>
-                <h1>upto 50% offers</h1>
+                <h1>Book Rental</h1>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere iure accusantium nisi minus ipsum porro.
+                    The BookShop gives our users the opportunity to enroll into book rental system.
                 </p>
-                <a href="\#" className='btn'>shop now</a>
+                <a href="\#" className='btn'>Book Rental</a>
             </div>
             <div className="image">
                 <img src="image/deal-img.jpg" alt="" />
@@ -573,9 +540,11 @@ const Home = () => {
                 <SwiperSlide>
                     <div className="swiper-slide box">
                         <img src={user} alt="" />
-                        <h3>john deo</h3>
+                        <h3>John Doe</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam delectus doloribus?
+                        The story start calm as a wind then it start to increase its pace steadily at the end the storm came and changes every thing and stops at when we want to feel it more.
+                        It's a story maily around with Scout younger than 4 years of Jem both are sibling with only parent Atticus finch a lawyer and a man with really deep thinking ability and a constant reader.
+                        The story is from Scout's perspective when she was only 6 she start her new journey in school with Jem.
                         </p>
                         <div className="stars">
                             <i><FaStar/></i>
@@ -589,9 +558,9 @@ const Home = () => {
                 <SwiperSlide>
                     <div className="swiper-slide box">
                         <img src={user} alt="" />
-                        <h3>john deo</h3>
+                        <h3>Kevin Peterson</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam delectus doloribus?
+                        The literary work "Rich Dad Poor Dad," penned by Robert Kiyosaki, is a timeless guide to financial literacy that imparts significant knowledge on capital accumulation and achieving economic autonomy. This written masterpiece has retained its status as an all-time favorite for over twenty years now and continues to be instrumental in empowering countless individuals worldwide towards managing their monetary affairs effectively.
                         </p>
                         <div className="stars">
                             <i><FaStar/></i>
@@ -605,9 +574,9 @@ const Home = () => {
                 <SwiperSlide>
                     <div className="swiper-slide box">
                         <img src={user} alt="" />
-                        <h3>john deo</h3>
+                        <h3>Jack Robert</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam delectus doloribus?
+                        I got in to ‘The Hunger Games’ when I was reading the first book at school. Since then, I’ve watched every film at least 5 times and read all of the books! This trilogy of books and films have really got me in to science fiction. I couldn’t live it enough! To all of you thinking of reading or watching ‘The Hunger Games’, you have to go along because it’s my absolute favourite trilogy of all time! Out of all the films, I like ‘Mockingjay Part 1’ the best because Katniss’ speech in District 8 blew my mind away! I fell in love! However, I like the original book best because it makes the most sense and really drew me in at the end of the Games. If I could rate this 11/10, I defiantly would! A must see, must read, classic science fiction story.
                         </p>
                         <div className="stars">
                             <i><FaStar/></i>
@@ -621,9 +590,9 @@ const Home = () => {
                 <SwiperSlide>
                     <div className="swiper-slide box">
                         <img src={user} alt="" />
-                        <h3>john deo</h3>
+                        <h3>Jane Smith</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam delectus doloribus?
+                        Lord of the flies the book is about a group of kids who get stuck on an island and slowly become rivals of each other. So basically i'm reading this book for my English class and to be honest it's really bad. When i first started reading this book i couldn't understand anything and also the character who was named Piggy is called "Fat kid" and is really focuses on that perspective in the book. As of all the kids keep on calling the term piggy which is a understatement as of when the time period this book is written in.
                         </p>
                         <div className="stars">
                             <i><FaStar/></i>
@@ -738,7 +707,7 @@ const Home = () => {
                     <h3>Contact Information</h3>
                     <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
                     <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
-                    <a href="\#"><i><FaEnvelope /></i>cosc671@yahoo.com</a>
+                    <a href="\#"><i><FaEnvelope /></i>cosc617@yahoo.com</a>
                     <img src="image/worldmap.png" alt="" className='map' />
                 </div>
             </div>

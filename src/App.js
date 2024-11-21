@@ -9,6 +9,8 @@ import Logout from "./Components/Logout.js";
 import User from "./Components/Profile.js";
 import ReadingList from "./Components/ReadingList.js";
 import Reservation from "./Components/TableReservation.js";
+import Aboutus from "./Components/Aboutus.js";
+import BookDetails from "./Components/BookDetails.js";
 import { Link, BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
           <Route path="/Components/Book" element={<Book />} />
           <Route path="/Components/ReadingList" element={<ReadingList />} />
           <Route path="/Components/TableReservation" element={<Reservation />} />
+          <Route path="/Components/Aboutus" element={<Aboutus />} />
+          <Route path="/Components/BookDetails" element={<BookDetails />} />
         </Routes>
       </div>
   );
