@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from "./Navbar";
 import user from "./Images/image.png";
 import { FaEye, FaHeadset, FaHeart,FaLock,FaPlane, FaSearch, FaStar, FaStarHalf, FaMapMarkedAlt, FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
@@ -6,8 +6,37 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 
 import { Autoplay} from 'swiper/modules';
+import { Link } from 'react-router-dom';
+import { openLibraryApi } from '../utils/openLibraryApi';
+import { preloadImage, preloadImages } from '../utils/imageUtils';
 
 const Home = () => {
+  const [featuredBooks, setFeaturedBooks] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchFeaturedBooks = async () => {
+      setLoading(true);
+      try {
+        const books = await openLibraryApi.getTrendingBooks();
+        const featuredBooksData = books.slice(0, 5).map(book => ({
+          id: book.id,
+          title: book.volumeInfo.title,
+          price: (Math.random() * (29.99 - 9.99) + 9.99).toFixed(2),
+          originalPrice: (Math.random() * (39.99 - 29.99) + 29.99).toFixed(2),
+          image: book.volumeInfo.imageLinks?.thumbnail || '/image/book-1.png'
+        }));
+        await preloadImages(books.slice(0, 5));
+        setFeaturedBooks(featuredBooksData);
+      } catch (error) {
+        console.error('Error fetching featured books:', error);
+      }
+      setLoading(false);
+    };
+
+    fetchFeaturedBooks();
+  }, []);
+
   const swiperOptionsOne = {
     breakpoints: {
         0: {
@@ -21,7 +50,7 @@ const Home = () => {
         }
     },
     loop:true,
-  }; 
+  };
 
   const swiperOptionsTwo = {
     breakpoints: {
@@ -44,7 +73,7 @@ const Home = () => {
     loop:true,
     centeredSlides:true,
     spaceBetween:10,
-  }; 
+  };
 
   const swiperOptionsThree = {
     breakpoints: {
@@ -67,7 +96,7 @@ const Home = () => {
     loop:true,
     centeredSlides:true,
     spaceBetween:10,
-  }; 
+  };
 
   return (
     <div className='home-containber'>
@@ -79,11 +108,11 @@ const Home = () => {
                     <h3>upto 55% offers</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti sapiente eos quisquam voluptatibus, cum quod.</p>
                     <a href="\#" className="btn">shop now</a>
-                </div>    
+                </div>
                 <div className='swiper'>
                     <Swiper
-                        watchSlidesProgress={true} 
-                        slidesPerView={3}        
+                        watchSlidesProgress={true}
+                        slidesPerView={3}
                         autoplay={{
                             delay: 9500,
                             disableOnInteraction: false,
@@ -92,7 +121,7 @@ const Home = () => {
                         className="book-list"
                         {...swiperOptionsOne}
                     >
-                    
+
                         <a href="\#" class="swiper-slide">
                             <SwiperSlide><img src="image/book-1.png" alt=""  /></SwiperSlide>
                         </a>
@@ -117,207 +146,34 @@ const Home = () => {
             </div>
         </section>
 
-        <section class="featured" id="featured">
-          <div class="heading" style={{marginTop:"50px", marginBottom:"50px"}}><span>featured books</span></div>
-          <div class="swiper ">
-            <Swiper
-                watchSlidesProgress={true} 
-                autoplay={{
-                    delay: 3500,
-                    disableOnInteraction: false,
-                }}
-                modules={[Autoplay]}
-                className="featured-slider"
-                {...swiperOptionsTwo}
-            >
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-1.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-2.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-3.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-4.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-5.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-6.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-7.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-8.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-9.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-10.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            <SwiperSlide>
-            <div class="box">
-                <div class="icons">
-                    <a href="/#">< FaSearch /></a>
-                    <a href="/#">< FaHeart /></a>
-                    <a href="/#">< FaEye /></a>
-                </div>
-                <div class="image">
-                    <img src="image/book-5.png" alt="" />
-                </div>
-                <div class="content">
-                    <h3>featured book</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <a href="/#" class="btn">add to cart</a>
-                </div>
-            </div>
-            </SwiperSlide>
-            </Swiper >
+        <section className="featured" id="featured">
+          <div className="heading" style={{marginTop:"50px", marginBottom:"50px"}}>
+            <span>featured books</span>
+          </div>
+          <div className="swiper">
+            <Swiper {...swiperOptionsTwo}>
+              {featuredBooks.map(book => (
+                <SwiperSlide key={book.id}>
+                  <div className="box">
+                    <div className="icons">
+                      <Link to={`/book/${book.id}`}><FaSearch /></Link>
+                      <Link to="/readinglist"><FaHeart /></Link>
+                      <Link to={`/book/${book.id}`}><FaEye /></Link>
+                    </div>
+                    <div className="image">
+                      <img src={book.image} alt={book.title} />
+                    </div>
+                    <div className="content">
+                      <h3>{book.title}</h3>
+                      <div className="price">
+                        ${book.price} <span>${book.originalPrice}</span>
+                      </div>
+                      <a href="/#" className="btn">add to cart</a>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </section>
 
@@ -333,7 +189,7 @@ const Home = () => {
             <div className="heading" style={{marginTop:"50px", marginBottom:"50px"}}><span>New Arrivals</span></div>
             <div className="swiper">
                 <Swiper
-                    watchSlidesProgress={true} 
+                    watchSlidesProgress={true}
                     autoplay={{
                         delay: 3500,
                         disableOnInteraction: false,
@@ -438,7 +294,7 @@ const Home = () => {
 
             <div className="swiper">
                 <Swiper
-                    watchSlidesProgress={true} 
+                    watchSlidesProgress={true}
                     autoplay={{
                         delay: 3500,
                         disableOnInteraction: false,
@@ -561,7 +417,7 @@ const Home = () => {
 
             <div className="swiper">
             <Swiper
-                watchSlidesProgress={true} 
+                watchSlidesProgress={true}
                 autoplay={{
                     delay: 3500,
                     disableOnInteraction: false,
@@ -643,7 +499,7 @@ const Home = () => {
 
             <div className="swiper">
                 <Swiper
-                    watchSlidesProgress={true} 
+                    watchSlidesProgress={true}
                     autoplay={{
                         delay: 3500,
                         disableOnInteraction: false,
