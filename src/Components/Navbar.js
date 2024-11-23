@@ -121,8 +121,8 @@ const Navbar = () => {
                 </form>
                 <div className="icons">
                     <div id="search-btn"><FaSearch/></div>
-                    <Link to="Components/ReadingList"><FaHeart/></Link>
-                    <Link to="Components/Profile"><FaUser/></Link>
+                    <Link to="/Components/ReadingList"><FaHeart/></Link>
+                    <Link to="/Components/Profile"><FaUser/></Link>
                 </div>
             </div>
 

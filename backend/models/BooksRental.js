@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
+const rentalSchema = new mongoose.Schema({
+    isbnNumber: Int,
+    userEmail: String,
+    rentalDate: String,
+    returnDate: String
+});
 
-const bookRentalSchema = new mongoose.Schema({
-    userEmail: { type: String, ref: 'User', required: true }, 
-    ISBN: { type: String, ref: 'Book', required: true }, 
-    rentalDate: { type: Date, required: true },
-    returnDate: { type: Date, required: true }
-  });
-
-const bookRentalModel = mongoose.model("Book Rental", bookRentalSchema);
-module.exports = bookRentalModel;
+const rentalModel = mongoose.model("bookRentals", rentalSchema);
+module.exports = rentalModel;

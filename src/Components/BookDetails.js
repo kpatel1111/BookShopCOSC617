@@ -20,7 +20,7 @@ const BookDetails = () => {
         const fetchBookDetails = async () => {
             try {
                 const bookId = key.replace('/works/', '');
-                console.log('Fetching book details for ID:', bookId); 
+                console.log('Fetching book details for ID:', bookId);
                 const bookData = await openLibraryApi.getBookDetails(bookId);
                 const ratingsData = await openLibraryApi.getBookRatings(bookId);
 

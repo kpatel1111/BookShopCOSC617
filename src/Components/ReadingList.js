@@ -1,63 +1,114 @@
+import style from "../Book.css";
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Navbar from './Navbar';
-import BookLoader from './BookLoader';
+import { Link, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
+import Navbar from "./Navbar.js";
+import { FaEye, FaHeadset, FaHeart,FaLock,FaPlane, FaSearch, FaStar, FaStarHalf, FaMapMarkedAlt, FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
 
-const ReadingList = () => {
-    const [books, setBooks] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchReadingList = async () => {
-            try {
-                const response = await axios.get('http://localhost:3001/readinglist/current-user-id');
-                setBooks(response.data);
-            } catch (error) {
-                console.error('Error fetching reading list:', error);
-            }
-            setLoading(false);
-        };
-
-        fetchReadingList();
-    }, []);
-
-    const handleRemoveBook = async (bookKey) => {
-        try {
-            await axios.delete(`http://localhost:3001/readinglist/${bookKey}/current-user-id`);
-            setBooks(books.filter(book => book.bookKey !== bookKey));
-        } catch (error) {
-            console.error('Error removing book:', error);
-            alert('Failed to remove book from reading list');
-        }
-    };
-
-    if (loading) return <BookLoader />;
-
+function ReadingList() {
     return (
-        <div>
-            <Navbar />
-            <div className="reading-list-container">
-                <h2>My Reading List</h2>
-                <div className="books-grid">
-                    {books.map(book => (
-                        <div key={book.bookKey} className="book-card">
-                            <img
-                                src={book.bookDetails.imageLinks?.thumbnail}
-                                alt={book.bookDetails.title}
-                            />
-                            <h3>{book.bookDetails.title}</h3>
-                            <p>{book.bookDetails.authors?.join(', ')}</p>
-                            <button
-                                onClick={() => handleRemoveBook(book.bookKey)}
-                                className="remove-button"
-                            >
-                                Remove from List
-                            </button>
+        <div className="fullpage" id="bookfullpage" style={{ backgroundColor: 'white' }}>
+           <Navbar />
+            <section className="mainhome" id="bookmainhome1">
+                <div className="maintext" id="bookmaintext">
+                    <h1 id="bookh1" style={{ fontWeight: '200px' }}>Reading List Collection</h1>
+
+                    <Link to="" className="mainbtn" id="bookmainbtn">Explore Reading List<i class='#'></i></Link>
+                </div>
+            </section>
+
+            <section className="trendingproduct" id="booktrending" style={{ backgroundcolor: 'white' }}>
+
+                <div className="products" id="bookproducts">
+
+                        <div class="row1" id="bookrow1">
+                            <img id="bookimage" src="" alt="" />
+                            <div className="information" id="bookinformation">
+                                <p id="bookparagraph">Name</p>
+                                <p id="bookparagraph">ISBN Number</p>
+                                <p id="bookparagraph">Author</p>
+                                <p id="bookparagraph1">Edition</p>
+                            </div>
                         </div>
-                    ))}
+
+                        <div class="row1" id="bookrow1">
+                            <img id="bookimage" src="" alt="" />
+                            <div className="information" id="bookinformation">
+                                <p id="bookparagraph">Name</p>
+                                <p id="bookparagraph">ISBN Number</p>
+                                <p id="bookparagraph">Author</p>
+                                <p id="bookparagraph1">Edition</p>
+                            </div>
+                        </div>
+
+                        <div class="row1" id="bookrow1">
+                            <img id="bookimage" src="" alt="" />
+                            <div className="information" id="bookinformation">
+                                <p id="bookparagraph">Name</p>
+                                <p id="bookparagraph">ISBN Number</p>
+                                <p id="bookparagraph">Author</p>
+                                <p id="bookparagraph1">Edition</p>
+                            </div>
+                        </div>
+
+                        <div class="row1" id="bookrow1">
+                            <img id="bookimage" src="" alt="" />
+                            <div className="information" id="bookinformation">
+                                <p id="bookparagraph">Name</p>
+                                <p id="bookparagraph">ISBN Number</p>
+                                <p id="bookparagraph">Author</p>
+                                <p id="bookparagraph1">Edition</p>
+                            </div>
+                        </div>
+
+                        <div class="row1" id="bookrow1">
+                            <img id="bookimage" src="" alt="" />
+                            <div className="information" id="bookinformation">
+                                <p id="bookparagraph">Name</p>
+                                <p id="bookparagraph">ISBN Number</p>
+                                <p id="bookparagraph">Author</p>
+                                <p id="bookparagraph1">Edition</p>
+                            </div>
+                        </div>
+                </div>
+
+            </section>
+
+            <section className="footer" style={{background:"whitesmoke"}}>
+        <div className="box-container">
+                <div className="box">
+                    <h3>Website Links</h3>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Home</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Search Books</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Rent Books</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Reading Session Reservation</a>
+                </div>
+                <div className="box">
+                    <h3>User Links</h3>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>User Profile Page</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Reading List</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Books Rental History</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Table Reservation History</a>
+                </div>
+                <div className="box">
+                    <h3>Login and Logout</h3>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Login</a>
+                    <a href="\#"><i><FaMapMarkedAlt /></i>Logout</a>
+                </div>
+                <div className="box">
+                    <h3>Contact Information</h3>
+                    <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
+                    <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
+                    <a href="\#"><i><FaEnvelope /></i>cosc617@yahoo.com</a>
+                    <img src="image/worldmap.png" alt="" className='map' />
                 </div>
             </div>
+            <div className="credit">Created for COSC 617. All rights are reserved.</div>
+        </section>
         </div>
+
     );
 };
 

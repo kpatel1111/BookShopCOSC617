@@ -1,0 +1,132 @@
+
+#bookdetailsfull {
+    width: 100%;
+    height: 100%;
+  }
+  
+#bookdetailsbackground {
+    background-color: cadetblue;
+    width: 100%;
+    height: 100%;
+  }
+  
+#bookdetailsh1 {
+    color: black;
+  }
+  
+#bookdetailscolumn {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  
+#bookdetailscard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+    height: 680px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+#bookdetailscard1 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+    height: 680px;
+  }
+  
+#bookdetailscard2 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+    height: 680px;
+  }
+  
+#bookdetailsaboutsection {
+    padding: 50px;
+    text-align: center;
+    color: black;
+    height: 100px;
+  }
+  
+#bookdetailslabel {
+    color: black;
+  }
+  
+#bookdetailscontainer {
+    padding: 0 16px;
+  }
+  
+#bookdetailscontainer1 {
+    padding: 0 16px;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 40px;
+  }
+  
+#bookdetailscontainer::after,
+#bookdetailsrow::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+#bookdetailssubmit {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: green;
+    text-align: center;
+    cursor: pointer;
+    width: 40%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 130px;
+  }
+  
+#bookdetailssubmit:hover {
+    background-color: #555;
+  }
+  
+#email,
+#date1,
+#date2,
+#date,
+#appt,
+#tableNumber {
+    color: black;
+    font-size: 14px;
+    width: 40%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 2px solid blue;
+    background: white;
+    outline: none;
+  }
+
+#bookdetailsparagraph{
+    font-size: 14px;
+}
+
+#bookdetailsnote{
+    font-size: 14px;
+}
+
+#bookdetailsh2{
+    font-size: 25px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#bookdetailsh1{
+    font-size: 25px;
+    margin-bottom: 10px;
+}

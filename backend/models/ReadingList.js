@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
-
 const readingListSchema = new mongoose.Schema({
-    userEmail: { type: String, ref: 'User', required: true }, 
-    ISBN: { type: String, ref: 'Book', required: true } 
-  });
+    isbnNumber: Int,
+    userEmail: String,
+});
 
-const readingListModel = mongoose.model("Reading List", readingListSchema);
+const readingListModel = mongoose.model("readingList", readingListSchema);
 module.exports = readingListModel;
