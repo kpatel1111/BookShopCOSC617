@@ -9,7 +9,7 @@ import { FaSearch } from "react-icons/fa";
 const Navbar = (userEmailAddress) => {
 
     const navRef = useRef();
-
+    
     const showNavbar = () => {
         navRef.current.classList.toggle("login-form");
     }
