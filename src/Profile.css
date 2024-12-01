@@ -4,12 +4,12 @@
     height: 330px;
     position: relative;
     margin: 2% auto;
-    /*height: fit-content;*/
     margin-left: 470px;
     display: inline-block;
     background-color: whitesmoke;
     padding: 5px 20px 15px 20px;
 }
+
 #useremail,
 #userpassword,
 #userphonenumber,
@@ -19,11 +19,11 @@
     width: 50%;
     margin-top: 10px;
 }
+
 #usernameinput,
 #userphoneinput,
 #useremailinput,
-#userpasswordinput
- {
+#userpasswordinput {
     color: black;
     font-size: 14px;
     width: 90%;
@@ -36,13 +36,15 @@
     background-color: transparent;
     outline: none;
 }
+
 #usernameinput ::placeholder,
 #userphoneinput ::placeholder,
 #useremailinput ::placeholder,
 #userpasswordinput ::placeholder {
     text-align: center;
-    font-size:smaller;
+    font-size: smaller;
 }
+
 #userbutton {
     width: 40%;
     padding: 10px 30px;
@@ -54,12 +56,14 @@
     border-radius: 30px;
     margin-top: 25px;
 }
-#userimage{
-    width:100px;
+
+#userimage {
+    width: 100px;
     height: 100px;
     margin-left: 720px;
     margin-top: 20px;
 }
-#userh1{
+
+#userh1 {
     margin-top: 20px;
 }

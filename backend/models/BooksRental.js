@@ -1,6 +1,7 @@
+
 const mongoose = require('mongoose');
 const rentalSchema = new mongoose.Schema({
-    isbnNumber: Int,
+    isbnNumber: String,
     userEmail: String,
     rentalDate: String,
     returnDate: String

@@ -1,14 +1,16 @@
+
 import React from 'react';
 import "../App.css";
 import user from "./Images/image.png";
 import Navbar from "./Navbar";
+import { Link, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import BookShopLinks from './BookShopLinks';
 import 'swiper/swiper-bundle.css';
 import { Autoplay } from 'swiper/modules';
-import { red } from '@mui/material/colors';
 import { FaEye, FaHeadset, FaHeart, FaLock, FaPlane, FaSearch, FaStar, FaStarHalf, FaMapMarkedAlt, FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
 
-const Reviews = () => {
+const Reviews = ({ userEmailAddress }) => {
   const swiperOptions = {
     breakpoints: {
       0: {
@@ -34,8 +36,8 @@ const Reviews = () => {
     <div className='reviews-page'>
       <Navbar />
 
-      <h1 style={{ fontSize:"25px", marginTop:"20px", textAlign:"center" }}>Client Reviews</h1>
-      <section className="reviews" id="reviews" style={{marginTop:"-70px"}}>
+      <h1 style={{ fontSize: "25px", marginTop: "20px", textAlign: "center" }}>Client Reviews</h1>
+      <section className="reviews" id="reviews" style={{ marginTop: "-90px" }}>
         <div className="swiper">
           <Swiper
             watchSlidesProgress={true}
@@ -106,42 +108,10 @@ const Reviews = () => {
                 </div>
               </div>
             </SwiperSlide>
-            {/* Add more reviews as needed */}
           </Swiper>
         </div>
       </section>
-
-      <section className="footer" style={{ background: "whitesmoke" }}>
-        <div className="box-container">
-          <div className="box">
-            <h3>Website Links</h3>
-            <a href="\#"><i><FaMapMarkedAlt /></i>Home</a>
-            <a href="\#"><i><FaMapMarkedAlt /></i>Search Books</a>
-            <a href="\#"><i><FaMapMarkedAlt /></i>Rent Books</a>
-            <a href="\#"><i><FaMapMarkedAlt /></i>Reading Session Reservation</a>
-          </div>
-          <div className="box">
-            <h3>User Links</h3>
-            <a href="\#"><i><FaMapMarkedAlt /></i>User Profile Page</a>
-            <a href="\#"><i><FaMapMarkedAlt /></i>Reading List</a>
-            <a href="\#"><i><FaMapMarkedAlt /></i>Books Rental History</a>
-            <a href="\#"><i><FaMapMarkedAlt /></i>Table Reservation History</a>
-          </div>
-          <div className="box">
-            <h3>Login and Logout</h3>
-            <a href="\#"><i><FaMapMarkedAlt /></i>Login</a>
-            <a href="\#"><i><FaMapMarkedAlt /></i>Logout</a>
-          </div>
-          <div className="box">
-            <h3>Contact Information</h3>
-            <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
-            <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
-            <a href="\#"><i><FaEnvelope /></i>cosc617@yahoo.com</a>
-            <img src="image/worldmap.png" alt="" className='map' />
-          </div>
-        </div>
-        <div className="credit">Created for COSC 617. All rights are reserved.</div>
-      </section>
+      <BookShopLinks />
     </div>
   );
 };

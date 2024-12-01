@@ -71,7 +71,7 @@ section {
 
 #bookproducts {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 280px));
     gap: 3rem;
 }
 
@@ -79,8 +79,7 @@ section {
     position: relative;
     transition: all .40s;
     border-radius: 8px;
-    background-color: white;
-    box-shadow: 1px 1px 1px black;
+    background-color: whitesmoke;
 }
 
 #bookrow1:hover {
@@ -138,7 +137,7 @@ section {
     margin-left: 80px;
 }
 
-#bookreadinglist{
+#bookreadinglist {
     border: none;
     outline: 0;
     display: inline-block;
@@ -162,6 +161,6 @@ section {
     color: red;
 }
 
-#bookparagraph1{
+#bookparagraph1 {
     margin-bottom: 20px;
 }

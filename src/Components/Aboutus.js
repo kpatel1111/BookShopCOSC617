@@ -2,25 +2,18 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from "./Navbar.js";
 import style from "../Aboutus.css";
-import logo from "./Images/book.jpg";
 import Image from "./Images/book.jpg";
+import BookShopLinks from './BookShopLinks.js';
 import { BrowserRouter, Route, Link, Routes, useNavigate, Navigate, useLocation } from "react-router-dom";
-import { FaEye, FaHeadset, FaHeart,FaLock,FaPlane, FaSearch, FaStar, FaStarHalf, FaMapMarkedAlt, FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
+import { FaEye, FaHeadset, FaHeart, FaLock, FaPlane, FaSearch, FaStar, FaStarHalf, FaMapMarkedAlt, FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
 
-function About() {
+function About({ userEmailAddress }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const [y, setY] = useState("");
-  var k = "";
 
-  useEffect(() => {
-    setY(location.state);
-    k = location.state;
-  }, [location.state]);
-                                            
   return (
     <div className={style.fullpage} style={{ backgroundColor: 'white' }}>
-      <Navbar/>
+      <Navbar />
 
       <h2 id="aboutush2">About Us</h2>
       <div class="row" id="aboutusrow">
@@ -29,7 +22,9 @@ function About() {
             <img id="aboutusimage" src={Image} alt="" style={{ width: '100%', height: "48%" }} />
             <div className="container1" id="aboutuscontainer1">
               <h2 id="aboutush2" style={{ color: "black", marginBottom: "20px" }}>Our Goal</h2>
-              <p id="aboutusparagraph" style={{ lineHeight: "1.5" }}>Add goal information.</p>
+              <p id="aboutusparagraph" style={{ lineHeight: "1.5" }}>The goal of our BookShop website is to allow our users to explore a wide range of books collection in a single platform by filtering books based on the author or edition.
+                Our website also allows our users to utilize the book rental system to rent a book for a specific time frame, and book a table at our location for their in-person reading session reservation.
+              </p>
             </div>
           </div>
         </div>
@@ -62,37 +57,7 @@ function About() {
           </div>
         </div>
       </div>
-      <section className="footer" style={{background:"whitesmoke"}}>
-        <div className="box-container">
-                <div className="box">
-                    <h3>Website Links</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Home</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Search Books</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Rent Books</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Reading Session Reservation</a>
-                </div>
-                <div className="box">
-                    <h3>User Links</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>User Profile Page</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Reading List</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Books Rental History</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Table Reservation History</a>
-                </div>
-                <div className="box">
-                    <h3>Login and Logout</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Login</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Logout</a>
-                </div>
-                <div className="box">
-                    <h3>Contact Information</h3>
-                    <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
-                    <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
-                    <a href="\#"><i><FaEnvelope /></i>cosc617@yahoo.com</a>
-                    <img src="image/worldmap.png" alt="" className='map' />
-                </div>
-            </div>
-            <div className="credit">Created for COSC 617. All rights are reserved.</div>
-        </section>
+      <BookShopLinks />
     </div>
   );
 };

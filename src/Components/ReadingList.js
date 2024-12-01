@@ -7,12 +7,22 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { State } from "navigation";
 import Navbar from "./Navbar.js";
-import { FaEye, FaHeadset, FaHeart,FaLock,FaPlane, FaSearch, FaStar, FaStarHalf, FaMapMarkedAlt, FaPhoneAlt, FaEnvelope, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPinterestP } from "react-icons/fa";
+import BookShopLinks from "./BookShopLinks.js";
 
-function ReadingList() {
+function ReadingList({ userEmailAddress }) {
+
+    const location = useLocation();
+    const [isbnNumber, setIsbnNumber] = useState([]);
+
+    useEffect(() => {
+        axios.post("http://localhost:3001/getReadingList", { email: userEmailAddress })
+            .then(isbnNumber => { setIsbnNumber(isbnNumber.data) })
+            .catch(err => console.log(err))
+    },[]);
+
     return (
         <div className="fullpage" id="bookfullpage" style={{ backgroundColor: 'white' }}>
-           <Navbar />
+            <Navbar />
             <section className="mainhome" id="bookmainhome1">
                 <div className="maintext" id="bookmaintext">
                     <h1 id="bookh1" style={{ fontWeight: '200px' }}>Reading List Collection</h1>
@@ -22,95 +32,19 @@ function ReadingList() {
             </section>
 
             <section className="trendingproduct" id="booktrending" style={{ backgroundcolor: 'white' }}>
-
                 <div className="products" id="bookproducts">
-
+                    {isbnNumber.map(book => (
                         <div class="row1" id="bookrow1">
-                            <img id="bookimage" src="" alt="" />
+                            <img id="bookimage" src={book.picture} alt="" />
                             <div className="information" id="bookinformation">
-                                <p id="bookparagraph">Name</p>
-                                <p id="bookparagraph">ISBN Number</p>
-                                <p id="bookparagraph">Author</p>
-                                <p id="bookparagraph1">Edition</p>
+                                <p id="bookparagraph">ISBN Number: {book.isbnNumber}</p>
                             </div>
                         </div>
-
-                        <div class="row1" id="bookrow1">
-                            <img id="bookimage" src="" alt="" />
-                            <div className="information" id="bookinformation">
-                                <p id="bookparagraph">Name</p>
-                                <p id="bookparagraph">ISBN Number</p>
-                                <p id="bookparagraph">Author</p>
-                                <p id="bookparagraph1">Edition</p>
-                            </div>
-                        </div>
-
-                        <div class="row1" id="bookrow1">
-                            <img id="bookimage" src="" alt="" />
-                            <div className="information" id="bookinformation">
-                                <p id="bookparagraph">Name</p>
-                                <p id="bookparagraph">ISBN Number</p>
-                                <p id="bookparagraph">Author</p>
-                                <p id="bookparagraph1">Edition</p>
-                            </div>
-                        </div>
-
-                        <div class="row1" id="bookrow1">
-                            <img id="bookimage" src="" alt="" />
-                            <div className="information" id="bookinformation">
-                                <p id="bookparagraph">Name</p>
-                                <p id="bookparagraph">ISBN Number</p>
-                                <p id="bookparagraph">Author</p>
-                                <p id="bookparagraph1">Edition</p>
-                            </div>
-                        </div>
-
-                        <div class="row1" id="bookrow1">
-                            <img id="bookimage" src="" alt="" />
-                            <div className="information" id="bookinformation">
-                                <p id="bookparagraph">Name</p>
-                                <p id="bookparagraph">ISBN Number</p>
-                                <p id="bookparagraph">Author</p>
-                                <p id="bookparagraph1">Edition</p>
-                            </div>
-                        </div>
+                    ))}
                 </div>
-
             </section>
-
-            <section className="footer" style={{background:"whitesmoke"}}>
-        <div className="box-container">
-                <div className="box">
-                    <h3>Website Links</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Home</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Search Books</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Rent Books</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Reading Session Reservation</a>
-                </div>
-                <div className="box">
-                    <h3>User Links</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>User Profile Page</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Reading List</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Books Rental History</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Table Reservation History</a>
-                </div>
-                <div className="box">
-                    <h3>Login and Logout</h3>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Login</a>
-                    <a href="\#"><i><FaMapMarkedAlt /></i>Logout</a>
-                </div>
-                <div className="box">
-                    <h3>Contact Information</h3>
-                    <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
-                    <a href="\#"><i><FaPhoneAlt /></i>+123-356-546</a>
-                    <a href="\#"><i><FaEnvelope /></i>cosc617@yahoo.com</a>
-                    <img src="image/worldmap.png" alt="" className='map' />
-                </div>
-            </div>
-            <div className="credit">Created for COSC 617. All rights are reserved.</div>
-        </section>
+            <BookShopLinks />
         </div>
-
     );
 };
 

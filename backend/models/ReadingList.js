@@ -1,7 +1,9 @@
+
 const mongoose = require('mongoose');
 const readingListSchema = new mongoose.Schema({
-    isbnNumber: Int,
+    isbnNumber: String,
     userEmail: String,
+    picture: String
 });
 
 const readingListModel = mongoose.model("readingList", readingListSchema);

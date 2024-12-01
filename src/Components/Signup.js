@@ -4,7 +4,6 @@ import "../LoginSignup.css";
 import image from "./Images/book.jpg";
 import { BrowserRouter, Route, Routes, Router, Link } from 'react-router-dom';
 import axios from 'axios';
-import login from "./Login.js";
 import { useNavigate } from "react-router-dom";
 
 function Signup() {
@@ -16,14 +15,21 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     axios.post("http://localhost:3001/register", { name, phoneNumber, email, password })
       .then(result => {
-        console.log(result);
-        navigate("/");
+        if (result.data === "The email address is already registered. Please input another email address.") {
+          alert("The email address is already registered. Please input another email address.");
+          setName("");
+          setPhoneNumber("");
+          setEmail("");
+          setPassword("");
+        }
+        else {
+          alert("The account creation process is completed. Please login to get access to the website.");
+          navigate("/");
+        }
       })
       .catch(error => console.log(error))
-
   };
   return (
     <div className="full-page" id="loginsignupfullpage">
@@ -68,12 +74,11 @@ function Signup() {
               />
             </p>
             <br></br>
-            <Link to="/" style={{marginTop:"50px", fontSize:"12px"}}>Already have an account, SignIn</Link>
+            <Link to="/" style={{ marginTop: "50px", fontSize: "12px" }}>Already have an account, SignIn</Link>
             <p><button type="submit" id="loginsignupbutton" style={{ color: "white", backgroundColor: "green" }}>Register</button></p>
           </form>
         </center>
       </div>
-
     </div>
   );
 };
