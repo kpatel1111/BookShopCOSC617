@@ -12,7 +12,8 @@ function Login({ setUserEmail }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/login", { email, password })
+        alert("welcome");
+        /*axios.post("http://localhost:3001/login", { email, password })
             .then(result => {
                 if (result.data === "Login Successful") {
                     alert("Login Successful");
@@ -25,9 +26,7 @@ function Login({ setUserEmail }) {
                     setPassword("");
                 }
             })
-            .catch(error => console.log(error));
-
-
+            .catch(error => console.log(error));*/
     };
 
     return (
