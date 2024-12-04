@@ -23,7 +23,7 @@ function Profile({ userEmailAddress }) {
         e.preventDefault();
         const id = data._id;
         axios.post("https://bookshopcosc617.onrender.com/updateProfile", { id, name, phone, password })
-            .then(result => {alert("Profile Information is updated successfully."); window.location.reload()})
+            .then(result => {alert("Profile Information is updated successfully.");})
             .catch(error => console.log(error))
 
     };
