@@ -12,7 +12,7 @@ function Login({ setUserEmail }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.post("https://dynamic-sundae-644c5e.netlify.app/login", { email, password })
+        axios.post("http://localhost:3001/login", { email, password })
             .then(result => {
                 if (result.data === "Login Successful") {
                     alert("Login Successful");
