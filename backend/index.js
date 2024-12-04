@@ -61,7 +61,8 @@ app.post("/updateProfile", function (request, response) {
     const { id, name, phone, password } = request.body;
     var keyQuery = { _id: id };
     if (phone === "") {
-        var updateQuery = { $set: { password: password } };
+        const hashedPassword = bcrypt.hashSync(password, 10);
+        var updateQuery = { $set: { password: hashedPassword } };
         UserModel.findByIdAndUpdate(keyQuery, updateQuery)
             .then(user => response.status(200).json(user))
             .catch(error => response.status(400).json(error))
