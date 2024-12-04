@@ -12,7 +12,7 @@ const { ObjectId } = require('mongodb');
 const { ReadMoreOutlined } = require('@mui/icons-material');
 const app = express();
 app.use(express.json());
-app.use();
+app.use(cors());
 
 mongoose.connect("mongodb+srv://kpatel43:IETDho3RBJDA7Lmi@bookshop.zkpqa.mongodb.net/?retryWrites=true&w=majority&appName=bookshop");
 
