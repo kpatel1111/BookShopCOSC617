@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { State } from "navigation";
@@ -60,7 +59,7 @@ function Book({ userEmailAddress, setBookNumber }) {
                                 <p id="bookparagraph">Author: {book.author}</p>
                                 <p id="bookparagraph">Edition: {book.edition}</p>
                                 <button id="bookreadinglist" style={{ backgroundColor: "#2eeea2" }} type="submit" onClick={(e) => { e.preventDefault(); addReadingList(book) }}>Add Book to Reading List</button>
-                                <button id="bookselect" style={{ backgroundColor: "#2eeea2" }} type="submit" onClick={() => redirect(book)}>Select Book</button>
+                                <button id="bookselect" style={{ backgroundColor: "#2eeea2" }} type="submit" onClick={(e) => redirect(book)}>Select Book</button>
                             </div>
                         </div>
                     ))}
