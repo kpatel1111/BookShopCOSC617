@@ -9,10 +9,11 @@ function Login({ setUserEmail }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const apiUrl = "https://starlit-frangipane-ba4816.netlify.app" || 'http://localhost:3001';
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/login", { email, password })
+        axios.post("${apiUrl}/login", { email, password })
             .then(result => {
                 if (result.data === "Login Successful") {
                     alert("Login Successful");
