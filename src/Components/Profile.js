@@ -29,7 +29,7 @@ function Profile({ userEmailAddress }) {
     };
 
     useEffect(() => {
-        axios.post("http://localhost:3001/getUser", { email: userEmailAddress })
+        axios.post("https://bookshopcosc617.onrender.com/getUser", { email: userEmailAddress })
             .then(user => { setData(user.data); })
             .catch(err => console.log(err))
     }, []);
