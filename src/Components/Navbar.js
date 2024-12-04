@@ -9,16 +9,12 @@ import { FaSearch } from "react-icons/fa";
 const Navbar = (userEmailAddress) => {
 
     const navRef = useRef();
-    
-    const showNavbar = () => {
-        navRef.current.classList.toggle("login-form");
-    }
 
     return (
         <div>
             <header className='header'>
                 <div className='header_one'>
-                    <a href="\#" className="logo"><FaBook />BookShop</a>
+                    <Link to="/Components/Home" className="logo"><FaBook />BookShop</Link>
                     <form action="" className="search-form">
                         <input type="search" id='search-box' placeholder='search here...' />
                         <label><FaSearch /></label>
