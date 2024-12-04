@@ -13,7 +13,7 @@ function Book({ userEmailAddress, setBookNumber }) {
     const location = useLocation();
 
     useEffect(() => {
-        axios.post("http://localhost:3001/getBooks")
+        axios.post("https://bookshopcosc617.onrender.com/getBooks")
             .then(books => setBook(books.data))
             .catch(err => console.log(err))
     },[userEmailAddress]);
@@ -21,7 +21,7 @@ function Book({ userEmailAddress, setBookNumber }) {
     const addReadingList = async (book) => {
         const isbnNumber = book.isbnNumber;
         const picture = book.picture;
-        axios.post("http://localhost:3001/addReadingList", { email: userEmailAddress, isbnNumber: isbnNumber, picture: picture })
+        axios.post("https://bookshopcosc617.onrender.com/addReadingList", { email: userEmailAddress, isbnNumber: isbnNumber, picture: picture })
             .then(response => {
                 if (response.data === "The book is already added to the reading list. Please try to add another book to the reading list.") {
                     alert("The book is already added to the reading list. Please try to add another book to the reading list.");

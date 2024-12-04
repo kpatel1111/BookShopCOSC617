@@ -13,7 +13,7 @@ function ReadingList({ userEmailAddress }) {
     const [isbnNumber, setIsbnNumber] = useState([]);
 
     useEffect(() => {
-        axios.post("http://localhost:3001/getReadingList", { email: userEmailAddress })
+        axios.post("https://bookshopcosc617.onrender.com/getReadingList", { email: userEmailAddress })
             .then(isbnNumber => { setIsbnNumber(isbnNumber.data) })
             .catch(err => console.log(err))
     },[]);

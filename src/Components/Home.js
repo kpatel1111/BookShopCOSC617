@@ -21,13 +21,13 @@ function Home({ userEmailAddress }) {
     const location = useLocation();
 
     useEffect(() => {
-        axios.post("http://localhost:3001/getBooks")
+        axios.post("https://bookshopcosc617.onrender.com/getBooks")
             .then(books => setBook(books.data))
             .catch(err => console.log(err))
     },[userEmailAddress]);
 
     useEffect(() => {
-        axios.post("http://localhost:3001/getUser", { email: userEmailAddress })
+        axios.post("https://bookshopcosc617.onrender.com/getUser", { email: userEmailAddress })
             .then(user => { setData(user.data); })
             .catch(err => console.log(err))
     }, []);

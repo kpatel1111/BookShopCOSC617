@@ -22,7 +22,7 @@ function Profile({ userEmailAddress }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const id = data._id;
-        axios.post("http://localhost:3001/updateProfile", { id, name, phone, password })
+        axios.post("https://bookshopcosc617.onrender.com/updateProfile", { id, name, phone, password })
             .then(result => {alert("Profile Information is updated successfully."); window.location.reload()})
             .catch(error => console.log(error))
 

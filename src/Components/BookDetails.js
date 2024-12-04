@@ -21,7 +21,7 @@ function BookDetails({ userEmailAddress, bookNumber }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.post("http://localhost:3001/getOneBook", { isbnNumber: bookNumber })
+    axios.post("https://bookshopcosc617.onrender.com/getOneBook", { isbnNumber: bookNumber })
       .then(result => {
         setBook(result.data);
       })
@@ -32,7 +32,7 @@ function BookDetails({ userEmailAddress, bookNumber }) {
     if (email == "" || rentalDate == "" || returnDate == "") {
       alert("Please enter valid details for the book rental process.");
     } else {
-      axios.post("http://localhost:3001/bookRentalProcess", { isbnNumber: book.isbnNumber, userEmail: userEmailAddress, rentalDate: rentalDate, returnDate: returnDate })
+      axios.post("https://bookshopcosc617.onrender.com/bookRentalProcess", { isbnNumber: book.isbnNumber, userEmail: userEmailAddress, rentalDate: rentalDate, returnDate: returnDate })
         .then(bookRental => {
           if (bookRental.data === "The book is not available to rent. Please rent another book from the collection.") {
             alert("The book is not available to rent. Please rent another book from the collection.");
@@ -46,7 +46,7 @@ function BookDetails({ userEmailAddress, bookNumber }) {
   };
 
   const readingSessionReservation = async (book) => {
-    axios.post("http://localhost:3001/readingSessionReservationProcess", { userEmail: userEmailAddress, date: date, time: time, tableNumber: tableNumber })
+    axios.post("https://bookshopcosc617.onrender.com/readingSessionReservationProcess", { userEmail: userEmailAddress, date: date, time: time, tableNumber: tableNumber })
       .then(reservation => {
         if (reservation.data === "The table is not available for the reading session. Please reserve another table.") {
           alert("The table is not available for the reading session. Please reserve another table.");

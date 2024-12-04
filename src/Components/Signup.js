@@ -15,7 +15,7 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3001/register", { name, phoneNumber, email, password })
+    axios.post("https://bookshopcosc617.onrender.com/register", { name, phoneNumber, email, password })
       .then(result => {
         if (result.data === "The email address is already registered. Please input another email address.") {
           alert("The email address is already registered. Please input another email address.");

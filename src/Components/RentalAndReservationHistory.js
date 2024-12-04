@@ -15,11 +15,11 @@ function RentalAndReservationHistory({ userEmailAddress }) {
     const [tableReservation, setTableReservation] = useState([]);
 
     useEffect(() => {
-        axios.post("http://localhost:3001/getRentalHistory", { email: userEmailAddress })
+        axios.post("https://bookshopcosc617.onrender.com/getRentalHistory", { email: userEmailAddress })
             .then(rental => { setBookRental(rental.data); })
             .catch(err => { console.log(err); })
 
-        axios.post("http://localhost:3001/getReservationHistory", { email: userEmailAddress })
+        axios.post("https://bookshopcosc617.onrender.com/getReservationHistory", { email: userEmailAddress })
             .then(reservation => { setTableReservation(reservation.data); })
             .catch(err => { console.log(err); })
     }, []);
