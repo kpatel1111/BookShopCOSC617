@@ -15,10 +15,6 @@ const Navbar = (userEmailAddress) => {
             <header className='header'>
                 <div className='header_one'>
                     <Link to="/Components/Home" className="logo"><FaBook />BookShop</Link>
-                    <form action="" className="search-form">
-                        <input type="search" id='search-box' placeholder='search here...' />
-                        <label><FaSearch /></label>
-                    </form>
                     <div className="icons">
                         <div id="search-btn"><FaSearch /></div>
                         <Link to="/Components/ReadingList"><FaHeart /></Link>

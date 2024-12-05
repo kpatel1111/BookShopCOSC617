@@ -159,14 +159,6 @@ function Home({ userEmailAddress }) {
                 </div>
             </section>
 
-            <section className="newsletter">
-                <form action="">
-                    <h3>subscribe for latest update</h3>
-                    <input type="email" placeholder='Please enter your email address.' className='box' />
-                    <input type="submit" value="subscribe" className='btn' />
-                </form>
-            </section>
-
             <section className="arrivals" id='arrivals'>
                 <div className="heading" style={{ marginTop: "50px", marginBottom: "50px" }}><span>New Arrivals</span></div>
                 <div className="swiper">
