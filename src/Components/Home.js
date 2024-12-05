@@ -160,7 +160,7 @@ function Home({ userEmailAddress }) {
             </section>
 
             <section className="arrivals" id='arrivals'>
-                <div className="heading" style={{ marginTop: "50px", marginBottom: "50px" }}><span>New Arrivals</span></div>
+                <div className="heading" style={{ marginTop: "20px", marginBottom: "50px" }}><span>New Arrivals</span></div>
                 <div className="swiper">
                     <Swiper
                         watchSlidesProgress={true}
